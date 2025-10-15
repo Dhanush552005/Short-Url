@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortener</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #f06, #4c6ef5);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px 40px;
+      border-radius: 10px;
+      max-width: 450px;
+      width: 100%;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    label {
+      font-size: 1.1rem;
+      color: #333;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 2px solid #ddd;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #4c6ef5;
+      box-shadow: 0 0 8px rgba(76, 110, 245, 0.4);
+    }
+
+    button {
+      background-color: #4c6ef5;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #3b5bb6;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 1.4rem;
+      color: #333;
+    }
+
+    a {
+      color: #4c6ef5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>URL SHORTENER</h1>
+    <form method="post" action="/url">
+      <label for="url">Enter your original URL</label>
+      <input type="text" id="url" name="URL" placeholder="https://example.com" required/>
+      <button type="submit">Generate</button>
+    </form>
+
+    <% if (locals.id) { %>
+      <h2>Shortened URL:</h2>
+      <p>
+        <a href="http://localhost:8000/<%= id %>" target="_blank">
+          http://localhost:8000/<%= id %>
+        </a>
+      </p>
+    <% } %>
+  </div>
+</body>
+</html>
