@@ -77,6 +77,23 @@
             font-size: 1rem;
             margin-top: 10px;
         }
+
+        .signup-link {
+            display: block;
+            margin-top: 15px;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .signup-link a {
+            color: #ff7e5f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -84,10 +101,10 @@
         <h1>Login</h1>
         <form method="post" action="/user/login">
             <label for="email">Email</label>
-            <input type="text" id="email" name="email" placeholder="Enter your email" required><br>
+            <input type="text" id="email" name="email" placeholder="Enter your email" required>
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
             <button type="submit">Login</button>
 
@@ -95,6 +112,10 @@
                 <div class="error"><%= locals.error %></div>
             <% } %>
         </form>
+
+        <div class="signup-link">
+            Don’t have an account? <a href="/user/signup">Sign up here</a>
+        </div>
     </div>
 </body>
 </html>
