@@ -14,15 +14,18 @@ async function handlegeneratenewshorturl(req, res) {
     }
 
     const shortID = shortId.generate();
-
     await URL.create({
       shortid: shortID,
       redirecturl: finalURL,
       visithistory: [],
     });
 
+    // ✅ Automatically use Render or Localhost domain
+    const baseUrl = `${req.protocol}://${req.get("host")}`;
+    const shortUrl = `${baseUrl}/${shortID}`;
+
     return res.render("home", {
-      id: shortID,
+      shortUrl,
       success: true,
     });
   } catch (err) {
